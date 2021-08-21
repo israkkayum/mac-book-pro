@@ -1,7 +1,7 @@
 // Function for Extra Memory Cost
 
 function extraMemoryCost(power) {
-    const memoryCost = document.getElementById('extra-memory-cost');
+    let memoryCost = document.getElementById('extra-memory-cost');
     const memory8gbButton = document.getElementById('8gb-memory');
     const memory16gbButton = document.getElementById('16gb-memory');
 
@@ -19,14 +19,13 @@ function extraMemoryCost(power) {
         memory8gbButton.style.backgroundColor = '';
         memory8gbButton.style.color = '';
     }
-    totalChargeValue.innerText = parseInt(memoryCost.innerText) + parseInt(previousChargeValue);
-    totalPriceValue.innerText = totalChargeValue.innerText;
+    return memoryCost;
 };
 
 // Function for Extra Storage Cost
 
 function extraStorageCost(power) {
-    const storageCost = document.getElementById('extra-storage-cost');
+    let storageCost = document.getElementById('extra-storage-cost');
     const storage256gbButton = document.getElementById('256gb-ssd');
     const storage512gbButton = document.getElementById('512gb-ssd');
     const storage1tbButton = document.getElementById('1tb-ssd');
@@ -58,14 +57,13 @@ function extraStorageCost(power) {
         storage256gbButton.style.backgroundColor = '';
         storage256gbButton.style.color = '';
     }
-    totalChargeValue.innerText = parseInt(storageCost.innerText) + parseInt(previousChargeValue);
-    totalPriceValue.innerText = totalChargeValue.innerText;
+    return storageCost;
 };
 
 // Function for delivery Charge
 
 function deliveryCharge(charge) {
-    const totalDeliveryCharge = document.getElementById('total-delivery-charge');
+    let totalDeliveryCharge = document.getElementById('total-delivery-charge');
     const freeChargeButton = document.getElementById('free-delivery');
     const premiumChargeButton = document.getElementById('premium-delivery');
 
@@ -83,62 +81,91 @@ function deliveryCharge(charge) {
         premiumChargeButton.style.backgroundColor = 'red';
         premiumChargeButton.style.color = 'white';
     }
-    totalChargeValue.innerText = parseInt(totalDeliveryCharge.innerText) + parseInt(previousChargeValue);
-    totalPriceValue.innerText = totalChargeValue.innerText;
+    return totalDeliveryCharge;
 
 };
+
+function totalCostCount(memory, storage, delivery) {
+  
+    // Memory Count
+
+    let memoryCostText = extraMemoryCost(memory).innerText;
+    const memoryCost = parseInt(memoryCostText);
+
+    // storage Count
+
+    let storageCostText = extraStorageCost(storage).innerText;
+    const storageCost = parseInt(storageCostText);
+
+    // delivery Count
+
+    let deliveryCostText = deliveryCharge(delivery).innerText;
+    const deliveryCost = parseInt(deliveryCostText);
+
+    // Total blance
+
+    let totalChargeValue = document.getElementById('total-charge');
+    const previousChargeValue = document.getElementById('best-price').innerText;
+    totalChargeValue.innerText = memoryCost + storageCost + deliveryCost + parseInt(previousChargeValue);
+
+    // Total Price and Discount or Pomo code
+
+    const totalPriceValue = document.getElementById('total-price');
+    let previousPriceValue = totalChargeValue.innerText;
+    totalPriceValue.innerText = previousPriceValue;
+
+    document.getElementById('pomo-code-button').addEventListener('click', function () {
+    const pomoCodeInput = document.getElementById('pomo-code-input');
+
+    if (pomoCodeInput.value == 'stevekaku') {
+        totalPriceValue.innerText = parseInt(previousPriceValue) - (parseFloat((previousPriceValue*20)/100));
+        pomoCodeInput.value = '';
+    }
+    else{
+        pomoCodeInput.value = '';
+    }
+    });
+}
 
 document.getElementById('8gb-memory').addEventListener('click', function (){
 
     extraMemoryCost('8gb');
+    totalCostCount('8gb');
 
 });
 document.getElementById('16gb-memory').addEventListener('click', function (){
 
     extraMemoryCost('16gb');
+    totalCostCount('16gb');
 
 });
 document.getElementById('256gb-ssd').addEventListener('click', function (){
 
     extraStorageCost('256gb');
+    totalCostCount('256gb');
 
 });
 document.getElementById('512gb-ssd').addEventListener('click', function (){
 
     extraStorageCost('512gb');
+    totalCostCount('512gb');
 
 });
 document.getElementById('1tb-ssd').addEventListener('click', function (){
 
     extraStorageCost('1tb');
+    totalCostCount('1tb');
 
 });
 document.getElementById('free-delivery').addEventListener('click', function (){
 
     deliveryCharge('free');
+    totalCostCount('free');
 
 });
 document.getElementById('premium-delivery').addEventListener('click', function (){
 
     deliveryCharge('premium');
+    totalCostCount('premium');
 
 });
-
-const totalChargeValue = document.getElementById('total-charge');
-const previousChargeValue = totalChargeValue.innerText;
-
-const totalPriceValue = document.getElementById('total-price');
-const previousPriceValue = totalPriceValue.innerText;
-
-document.getElementById('pomo-code-button').addEventListener('click', function () {
-const pomoCodeInput = document.getElementById('pomo-code-input');
-
-if (pomoCodeInput.value == 'stevekaku') {
-    totalPriceValue.innerText = parseInt(previousPriceValue) - (parseFloat((previousPriceValue*20)/100));
-    pomoCodeInput.value = '';
-}
-else{
-    pomoCodeInput.value = '';
-}
-});
-
