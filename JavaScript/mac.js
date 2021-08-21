@@ -1,7 +1,7 @@
 // Function for Extra Memory Cost
 
 function extraMemoryCost(power) {
-    let memoryCost = document.getElementById('extra-memory-cost');
+    const memoryCost = document.getElementById('extra-memory-cost');
     const memory8gbButton = document.getElementById('8gb-memory');
     const memory16gbButton = document.getElementById('16gb-memory');
 
@@ -25,7 +25,7 @@ function extraMemoryCost(power) {
 // Function for Extra Storage Cost
 
 function extraStorageCost(power) {
-    let storageCost = document.getElementById('extra-storage-cost');
+    const storageCost = document.getElementById('extra-storage-cost');
     const storage256gbButton = document.getElementById('256gb-ssd');
     const storage512gbButton = document.getElementById('512gb-ssd');
     const storage1tbButton = document.getElementById('1tb-ssd');
@@ -63,7 +63,7 @@ function extraStorageCost(power) {
 // Function for delivery Charge
 
 function deliveryCharge(charge) {
-    let totalDeliveryCharge = document.getElementById('total-delivery-charge');
+    const totalDeliveryCharge = document.getElementById('total-delivery-charge');
     const freeChargeButton = document.getElementById('free-delivery');
     const premiumChargeButton = document.getElementById('premium-delivery');
 
@@ -89,29 +89,29 @@ function totalCostCount(memory, storage, delivery) {
   
     // Memory Count
 
-    let memoryCostText = extraMemoryCost(memory).innerText;
+    const memoryCostText = extraMemoryCost(memory).innerText;
     const memoryCost = parseInt(memoryCostText);
 
     // storage Count
 
-    let storageCostText = extraStorageCost(storage).innerText;
+    const storageCostText = extraStorageCost(storage).innerText;
     const storageCost = parseInt(storageCostText);
 
     // delivery Count
 
-    let deliveryCostText = deliveryCharge(delivery).innerText;
+    const deliveryCostText = deliveryCharge(delivery).innerText;
     const deliveryCost = parseInt(deliveryCostText);
 
     // Total blance
 
-    let totalChargeValue = document.getElementById('total-charge');
+    const totalChargeValue = document.getElementById('total-charge');
     const previousChargeValue = document.getElementById('best-price').innerText;
     totalChargeValue.innerText = memoryCost + storageCost + deliveryCost + parseInt(previousChargeValue);
 
     // Total Price and Discount or Pomo code
 
     const totalPriceValue = document.getElementById('total-price');
-    let previousPriceValue = totalChargeValue.innerText;
+    const previousPriceValue = totalChargeValue.innerText;
     totalPriceValue.innerText = previousPriceValue;
 
     document.getElementById('pomo-code-button').addEventListener('click', function () {
