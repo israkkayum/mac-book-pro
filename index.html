@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mac Book Pro</title>
+    <!-- Add Tailwind CSS Link -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mx-auto p-10">
+        <div class="grid lg:grid-cols-2 gap-20 pb-5">
+            <div>
+                <img src="images/mac.png" alt="">
+            </div>
+            <div>
+                <section class="pb-10">
+                    <h1 class="text-5xl font-bold pb-5">Find the right MacBook Pro for you.</h1>
+                    <p class="text-base">Designed for those who defy limits and change the world, the 16-inch MacBook Pro is by far the most powerful notebook we have ever made. With an immersive Retina display, superfast processors, advanced graphics, the largest battery capacity ever in a MacBook Pro, Magic Keyboard, and massive storage, it's the ultimate pro notebook for the ultimate user.</p>
+                </section>
+                <section class="pb-10">
+
+                    <!-- Product or Service List -->
+
+                    <h3 class="font-bold text-2xl pb-4">Memory</h3>
+                    <button id="8gb-memory" class="border-2 rounded border-gray-600 bg-blue-300 font-bold p-2 mr-2 mb-2">8GB Unified Memory</button>
+                    <button id="16gb-memory" class="border-2 rounded border-gray-600 bg-blue-300 font-bold p-2">16GB Unified Memory</button>
+                </section>
+                <section class="pb-10">
+                    <h3 class="font-bold text-2xl pb-4">Storage</h3>
+                    <button id="256gb-ssd" class="border-2 rounded border-gray-600 bg-blue-300 font-bold p-2 mr-2 mb-2">256GB SSD Storage</button>
+                    <button id="512gb-ssd" class="border-2 rounded border-gray-600 bg-blue-300 font-bold p-2 mr-2 mb-2">512GB SSD Storage</button>
+                    <button id="1tb-ssd" class="border-2 rounded border-gray-600 bg-blue-300 font-bold p-2">1TB SSD Storage</button>
+                </section>
+                <section class="pb-16">
+                    <h3 class="font-bold text-2xl pb-4">Choose Your Delivery Option</h3>
+                    <button id="free-delivery" class="border-2 rounded border-gray-600 bg-blue-300 font-bold p-2 mr-2 mb-2">Friday, Aug 25 Free Prime Delivery</button>
+                    <button id="premium-delivery" class="border-2 rounded border-gray-600 bg-blue-300 font-bold p-2 mr-2 mb-2">Friday, Aug 21 Delivery Charge $20</button>
+                </section>
+
+                <!-- Price List -->
+
+                <section class="font-bold text-lg">
+                    <div class="grid grid-cols-2 gap-5 p-3">
+                        <div>Best Price</div>
+                        <div>$<span id="best-price">1299</span></div>
+                    </div> 
+                    <hr class="w-4/6">
+                    <div class="grid grid-cols-2 gap-5 p-3">
+                        <div>Extra Memory Cost</div>
+                        <div>$<span id="extra-memory-cost">0</span></div>
+                    </div>
+                     <hr class="w-4/6">
+                    <div class="grid grid-cols-2 gap-5 p-3">
+                        <div>Extra Storage Cost</div>
+                        <div>$<span id="extra-storage-cost">0</span></div>
+                    </div> 
+                    <hr class="w-4/6"> 
+                    <div class="grid grid-cols-2 gap-5 p-3">
+                        <div>Delivery Charge</div>
+                        <div>$<span id="total-delivery-charge">0</span></div>
+                    </div> 
+                    <hr class="w-4/6 border-1 border-indigo-900"> 
+                    <div class="grid grid-cols-2 gap-5 p-3">
+                        <div>Total Charge</div>
+                        <div>$<span id="total-charge">1299</span></div>
+                    </div>
+                    <hr class="w-4/6">
+                    
+                    <!-- Pomo Code Button -->
+
+                    <h3 class="pt-5">Add Pomo Code</h3>
+                    <div class="grid grid-cols-2 gap-5 py-2">
+                        <div>
+                            <input id="pomo-code-input" type="text" class="border-2 rounded px-5 py-2 border-gray-500 font-bold">
+                        </div>
+                        <div>
+                            <button id="pomo-code-button" class="border-2 rounded-md px-5 py-2 bg-blue-300 font-bold">Apply</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <hr class="border-2 mb-5">
+        <h2 class="text-center font-bold text-3xl">Total: $<span id="total-price">1299</span></h2>
+      </div>
+<!-- Add JvaScript Link -->
+<script src="JavaScript/mac.js"></script>    
+</body>
+</html>
