@@ -85,6 +85,7 @@ function deliveryCharge(charge) {
     }
     totalChargeValue.innerText = parseInt(totalDeliveryCharge.innerText) + parseInt(previousChargeValue);
     totalPriceValue.innerText = totalChargeValue.innerText;
+
 };
 
 document.getElementById('8gb-memory').addEventListener('click', function (){
@@ -125,6 +126,7 @@ document.getElementById('premium-delivery').addEventListener('click', function (
 
 const totalChargeValue = document.getElementById('total-charge');
 const previousChargeValue = totalChargeValue.innerText;
+
 const totalPriceValue = document.getElementById('total-price');
 const previousPriceValue = totalPriceValue.innerText;
 
