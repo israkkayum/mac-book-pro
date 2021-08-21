@@ -102,7 +102,7 @@ function totalCostCount(memory, storage, delivery) {
     const deliveryCostText = deliveryCharge(delivery).innerText;
     const deliveryCost = parseInt(deliveryCostText);
 
-    // Total blance
+    // Total  Balance Count
 
     const totalChargeValue = document.getElementById('total-charge');
     const previousChargeValue = document.getElementById('best-price').innerText;
@@ -111,14 +111,15 @@ function totalCostCount(memory, storage, delivery) {
     // Total Price and Discount or Pomo code
 
     const totalPriceValue = document.getElementById('total-price');
-    const previousPriceValue = totalChargeValue.innerText;
-    totalPriceValue.innerText = previousPriceValue;
+    totalPriceValue.innerText = totalChargeValue.innerText;
+    const totalPriceValueInt = parseInt(totalPriceValue.innerText);
 
     document.getElementById('pomo-code-button').addEventListener('click', function () {
     const pomoCodeInput = document.getElementById('pomo-code-input');
 
     if (pomoCodeInput.value == 'stevekaku') {
-        totalPriceValue.innerText = parseInt(previousPriceValue) - (parseFloat((previousPriceValue*20)/100));
+        const priceDiscount = (totalPriceValueInt * 20)/100;
+        totalPriceValue.innerText = totalPriceValueInt - priceDiscount;
         pomoCodeInput.value = '';
     }
     else{
